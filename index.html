@@ -42,27 +42,32 @@
     
     <!-- HEADER -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#e8eaf6] text-gray-800 shadow-lg">
-      <div class="container mx-auto px-6 py-4 flex justify-between items-center h-20 relative">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center h-20">
         <div class="md:hidden">
           <a href="#home">
             <img src="https://static.wixstatic.com/media/0402ce_887709288ef24dc18088c554727d2274~mv2.png/v1/fill/w_222,h_62,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="logo" class="h-8" />
           </a>
         </div>
-        <nav class="hidden md:block">
-          <ul class="flex space-x-8 text-sm uppercase tracking-widest">
-            <li><a href="#about" class="hover:text-[#6771b7] transition-colors">關於協會</a></li>
-            <li><a href="#projects" class="hover:text-[#6771b7] transition-colors">會員介紹</a></li>
-            <li><a href="#contact" class="hover:text-[#6771b7] transition-colors">申請入會</a></li>
-            <li><a href="#solutions" class="hover:text-[#6771b7] transition-colors">活動花絮</a></li>
-            <li><a href="#clients" class="hover:text-[#6771b7] transition-colors">協會創始贊助企業</a></li>
-            <li><a href="#contact" class="hover:text-[#6771b7] transition-colors">聯絡我們</a></li>
-          </ul>
-        </nav>
-        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <a href="#home">
-            <img src="https://static.wixstatic.com/media/0402ce_887709288ef24dc18088c554727d2274~mv2.png/v1/fill/w_222,h_62,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="logo" class="h-10" />
-          </a>
+        
+        <!-- NEW Desktop Navigation -->
+        <div class="hidden md:flex flex-grow items-center justify-center">
+            <ul class="flex items-center space-x-4 lg:space-x-6 text-xs lg:text-sm uppercase tracking-widest">
+                <li><a href="#about" class="hover:text-[#6771b7] transition-colors whitespace-nowrap">關於協會</a></li>
+                <li><a href="#projects" class="hover:text-[#6771b7] transition-colors whitespace-nowrap">會員介紹</a></li>
+                <li><a href="#contact" class="hover:text-[#6771b7] transition-colors whitespace-nowrap">申請入會</a></li>
+            </ul>
+            <div class="px-4 lg:px-8 flex-shrink-0">
+                <a href="#home">
+                    <img src="https://static.wixstatic.com/media/0402ce_887709288ef24dc18088c554727d2274~mv2.png/v1/fill/w_222,h_62,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="logo" class="h-10" />
+                </a>
+            </div>
+            <ul class="flex items-center space-x-4 lg:space-x-6 text-xs lg:text-sm uppercase tracking-widest">
+                <li><a href="#solutions" class="hover:text-[#6771b7] transition-colors whitespace-nowrap">活動花絮</a></li>
+                <li><a href="#clients" class="hover:text-[#6771b7] transition-colors whitespace-nowrap">協會創始贊助企業</a></li>
+                <li><a href="#contact" class="hover:text-[#6771b7] transition-colors whitespace-nowrap">聯絡我們</a></li>
+            </ul>
         </div>
+
         <div class="flex space-x-4 items-center">
           <a href="#" aria-label="Facebook" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
           <a href="#" aria-label="Twitter" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
@@ -86,10 +91,10 @@
           <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 lg:grid-rows-4 gap-6">
             <div class="relative overflow-hidden md:col-span-4 lg:col-start-1 lg:col-span-3 lg:row-start-1 lg:row-span-2 text-white bg-[#6771b7] flex items-center justify-center rounded-tr-3xl min-h-[300px] md:min-h-0">
               <!-- LIGHT HEALTH COMPONENT -->
-              <div class="w-full h-full flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-8 p-4">
-                  <div class="flex-shrink-0 text-center md:text-left flex flex-col items-center md:items-start">
-                      <h2 class="text-6xl lg:text-7xl font-bold text-white tracking-wider whitespace-nowrap">光 健康</h2>
-                      <button id="hero-modal-trigger" class="mt-6 px-14 py-6 border-4 border-white text-white rounded-full self-center md:self-start hover:bg-white hover:text-[#6771b7] transition-colors duration-300 font-medium text-2xl">
+              <div class="w-full h-full flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-8 p-4 md:p-8">
+                  <div class="text-center md:text-left flex flex-col items-center md:items-start z-10">
+                      <h2 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white tracking-wider">光 健康</h2>
+                      <button id="hero-modal-trigger" class="mt-6 px-8 py-4 md:px-12 md:py-5 border-4 border-white text-white rounded-full self-center md:self-start hover:bg-white hover:text-[#6771b7] transition-colors duration-300 font-medium text-lg md:text-xl text-center max-w-sm md:max-w-md">
                           2025 智慧新光勢 光電創未來 交流研討會
                       </button>
                   </div>
@@ -239,7 +244,7 @@
                             <div class="lg:col-span-1 flex items-center justify-center p-8" style="border-right: 1px solid #d1d5db;">
                                 <div class="text-center p-4" style="color: #1F2937;">
                                     <h2 class="text-6xl sm:text-7xl font-light">協會創會理念</h2>
-                                    <p class="text-2xl sm:text-3xl mt-6 max-w-md leading-loose" style="opacity: 0.8;">協助學/醫/業界跨領域研發<br>打造全方位產業生態圈<br>引入更多的外部資源<br>爭取各界有志之士積極參與<br>積極發掘與培植相關專業人才</p>
+                                    <p class="text-lg sm:text-xl mt-6 max-w-md leading-9" style="opacity: 0.8;">協助學/醫/業界跨領域研發<br>打造全方位產業生態圈<br>引入更多的外部資源<br>爭取各界有志之士積極參與<br>積極發掘與培植相關專業人才</p>
                                 </div>
                             </div>
                             <div class="lg:col-span-2 relative h-full overflow-hidden">
