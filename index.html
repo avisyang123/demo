@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>光健康醫療科技創新發展協會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for a more modern look */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f5f9; }
+      ::-webkit-scrollbar-thumb { background: #6771b7; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #7f88c9; }
+
+      /* Animation for the hero arrow icon */
+      @keyframes point-down {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+      }
+      .animate-point-down { animation: point-down 2s ease-in-out infinite; }
+
+      /* Animation for the spinning hero icon */
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-spin-slow { animation: spin 24s linear infinite; }
+
+      /* Animation for modal fade-in */
+      @keyframes fade-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+      
+      .modal.hidden { display: none; }
+      body.modal-open { overflow: hidden; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+    
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#e8eaf6] text-gray-800 shadow-lg">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center h-20 relative">
+        <div class="md:hidden">
+          <a href="#home">
+            <img src="https://static.wixstatic.com/media/0402ce_887709288ef24dc18088c554727d2274~mv2.png/v1/fill/w_222,h_62,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="logo" class="h-8" />
+          </a>
+        </div>
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8 text-sm uppercase tracking-widest">
+            <li><a href="#about" class="hover:text-[#6771b7] transition-colors">關於協會</a></li>
+            <li><a href="#projects" class="hover:text-[#6771b7] transition-colors">會員介紹</a></li>
+            <li><a href="#contact" class="hover:text-[#6771b7] transition-colors">申請入會</a></li>
+            <li><a href="#solutions" class="hover:text-[#6771b7] transition-colors">活動花絮</a></li>
+            <li><a href="#clients" class="hover:text-[#6771b7] transition-colors">協會創始贊助企業</a></li>
+            <li><a href="#contact" class="hover:text-[#6771b7] transition-colors">聯絡我們</a></li>
+          </ul>
+        </nav>
+        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <a href="#home">
+            <img src="https://static.wixstatic.com/media/0402ce_887709288ef24dc18088c554727d2274~mv2.png/v1/fill/w_222,h_62,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="logo" class="h-10" />
+          </a>
+        </div>
+        <div class="flex space-x-4 items-center">
+          <a href="#" aria-label="Facebook" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Twitter" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+          <a href="#" aria-label="Pinterest" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.3 2.8 8 6.7 9.3-.1-.9-.2-2.1.1-3 .3-1.2 1.8-7.8 1.8-7.8s-.5-1-1.1-1c-1 0-1.8 1-1.8 2.2 0 .9.5 2 1.2 2 .8 0 1.2-.9 1-2-.2-1.2-2-3.6 1.4-3.6 2.8 0 4.9 2.1 4.9 5.2 0 3.1-2 5.4-4.7 5.4-1.9 0-3.3-1.6-2.8-3.4.5-1.7 1.4-3.5 1.4-4.5 0-1.3-1-2.4-2.5-2.4-2 0-3.5 2.1-3.5 4.8 0 1.2.4 2.5.9 3.2.1.1.1.2.1.3s-.1.4-.2.5c-.1.3-.3.4-.6.3-1.3-.4-2.1-1.8-2.1-3.5 0-2.8 2.3-6.1 6.5-6.1 3.4 0 6.1 2.5 6.1 5.7 0 3.5-2.2 6.3-5.3 6.3-1.1 0-2.2-.6-2.5-1.2l-.8 2.8c-.3 1.2-1 2.9-1.5 3.8.7.2 1.4.3 2.2.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"></path></svg></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="relative w-full bg-[#e8eaf6] py-24 px-4 sm:px-6 lg:px-6 flex flex-col justify-center min-h-screen overflow-hidden">
+        <div class="absolute top-12 right-12 z-0">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-64 h-64 text-[#6771b7] opacity-75 animate-spin-slow"><g fill="currentColor"><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(0 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(15 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(30 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(45 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(60 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(75 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(90 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(105 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(120 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(135 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(150 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(165 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(180 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(195 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(210 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(225 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(240 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(255 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(270 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(285 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(300 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(315 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(330 50 50)"></rect><rect x="47.5" y="5" width="5" height="35" rx="2.5" transform="rotate(345 50 50)"></rect><circle cx="50" cy="50" r="18"></circle></g></svg>
+        </div>
+        <div class="relative w-full max-w-7xl mb-12 text-left text-gray-800 pt-12 pl-12 z-10">
+            <div class="absolute top-0 left-0 h-12 w-12 border-t-2 border-l-2 border-gray-800"></div>
+            <h1 class="text-5xl sm:text-6xl font-bold leading-tight">光健康醫療科技創新發展協會</h1>
+            <p class="text-3xl sm:text-4xl text-gray-600 mt-2">Life for Health & Medical Association</p>
+        </div>
+        <div class="w-full mx-auto relative z-10">
+          <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 lg:grid-rows-4 gap-6">
+            <div class="relative overflow-hidden md:col-span-4 lg:col-start-1 lg:col-span-3 lg:row-start-1 lg:row-span-2 text-white bg-[#6771b7] flex items-center justify-center rounded-tr-3xl min-h-[300px] md:min-h-0">
+              <!-- LIGHT HEALTH COMPONENT -->
+              <div class="w-full h-full flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-8 p-4">
+                  <div class="flex-shrink-0 text-center md:text-left flex flex-col items-center md:items-start">
+                      <h2 class="text-6xl lg:text-7xl font-bold text-white tracking-wider whitespace-nowrap">光 健康</h2>
+                      <button id="hero-modal-trigger" class="mt-6 px-14 py-6 border-4 border-white text-white rounded-full self-center md:self-start hover:bg-white hover:text-[#6771b7] transition-colors duration-300 font-medium text-2xl">
+                          2025 智慧新光勢 光電創未來 交流研討會
+                      </button>
+                  </div>
+                  <div class="flex flex-col items-center justify-center scale-75 sm:scale-90 md:scale-100 -space-y-[1.75rem] sm:-space-y-8">
+                      <div class="flex justify-center -space-x-4 pl-16">
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #8ca4b3;">生理<br>時鐘</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #e4b9b9;">監控<br>照護</div></div>
+                      </div>
+                      <div class="flex justify-center -space-x-4">
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #e0f2f1;">可見光</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #ce93d8;">UV</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #e0f2f1;">雷射</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #a5d6a7;">影像</div></div>
+                      </div>
+                      <div class="flex justify-center -space-x-4">
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #ef5350;">IR</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #ffccbc;">滅活<br>破壞</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #cfd8dc;">智慧<br>遠距</div></div>
+                          <div class="w-[6rem] h-[7rem] sm:w-[7rem] sm:h-[8rem] flex-shrink-0" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"><div class="w-full h-full flex items-center justify-center text-center text-gray-800 font-semibold text-xs sm:text-sm leading-tight p-2" style="background-color: #dce775;">醫療<br>器材</div></div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="md:col-span-4 lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-2 bg-white text-gray-800 p-8 sm:p-12 flex flex-col justify-center rounded-tr-3xl min-h-[300px] md:min-h-0">
+                <h2 class="text-4xl sm:text-5xl font-light mb-4 tracking-tight">Revitalize</h2>
+                <p class="mb-8 text-lg text-gray-600">Use this space to promote the business, its products or its services.</p>
+                <a href="#" class="inline-block px-8 py-3 border-2 border-gray-800 rounded-full self-start hover:bg-gray-800 hover:text-white transition-colors duration-300 font-medium">Read Our Latest Report</a>
+            </div>
+            <div class="md:col-span-2 lg:col-start-1 lg:col-span-2 lg:row-start-3 lg:row-span-1 bg-gray-500 rounded-3xl overflow-hidden min-h-[150px] md:min-h-0">
+                <img src="https://static.wixstatic.com/media/0402ce_b449bdd77ede4b089731870fea61b934~mv2.jpeg/v1/fill/w_4074,h_1115,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/0402ce_b449bdd77ede4b089731870fea61b934~mv2.jpeg" alt="Business meeting" class="w-full h-full object-cover"/>
+            </div>
+            <div class="md:col-span-1 lg:col-start-4 lg:col-span-1 lg:row-start-2 lg:row-span-1 bg-white p-4 flex items-center justify-center rounded-3xl min-h-[150px] md:min-h-0">
+                <svg viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-20 text-gray-800"><path d="M24 2V68" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M8 58 C 24 75 24 75 40 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"></path></svg>
+            </div>
+            <div class="md:col-span-1 lg:col-start-6 lg:col-span-1 lg:row-start-3 lg:row-span-1 rounded-3xl overflow-hidden min-h-[150px] md:min-h-0">
+                <img src="https://static.wixstatic.com/media/0402ce_2b603df388fb4ac69f126192410bc835~mv2.jpeg/v1/fill/w_3645,h_997,al_c,q_90,enc_avif,quality_auto/0402ce_2b603df388fb4ac69f126192410bc835~mv2.jpeg" alt="Abstract architectural design" class="w-full h-full object-cover" />
+            </div>
+            <div class="md:col-span-4 lg:col-start-3 lg:col-span-3 lg:row-start-3 lg:row-span-2 bg-white text-gray-800 p-8 sm:p-12 flex flex-col justify-center rounded-tr-3xl min-h-[300px] md:min-h-0">
+                <h2 class="text-4xl sm:text-5xl font-light mb-4 text-[#6771b7] tracking-tight">Relaunch</h2>
+                <p class="mb-8 max-w-md text-lg text-gray-600">Use this space to promote the business, its products or its services. Help people become familiar with the business and its offerings, creating a sense of connection and trust.</p>
+                <a href="#" class="inline-block px-8 py-3 border-2 border-[#6771b7] text-[#6771b7] rounded-full self-start hover:bg-[#6771b7] hover:text-white transition-colors duration-300 font-medium">Check Our Solutions</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- HERO MODAL -->
+        <div id="hero-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="hero-modal-title">
+            <div class="relative bg-transparent rounded-lg max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
+                <h2 id="hero-modal-title" class="sr-only">Event Details</h2>
+                <button id="hero-modal-close-btn" class="absolute -top-8 right-0 text-white text-4xl leading-none z-10 hover:opacity-75 transition-opacity" aria-label="Close modal">&times;</button>
+                <img src="https://static.wixstatic.com/media/afb2ba_ee6225660dbd4add9f8bb4ed3001614e~mv2.png/v1/fill/w_1602,h_3982,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9C%83%E5%93%A1%E5%A4%A7%E6%9C%83%20%E9%8A%B7%E5%94%AE%E9%A0%81_%E9%A0%81%E9%9D%A2_1.png" alt="活動詳情" class="max-w-full max-h-[90vh] object-contain" />
+            </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="py-20 md:py-32 bg-[#f8f8fa] text-gray-800">
+        <div class="container mx-auto px-6 text-center">
+          <div class="max-w-4xl mx-auto">
+            <h3 class="text-xl font-light tracking-wider mb-6 text-gray-500">關於協會</h3>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-light leading-tight mb-8 text-gray-800">Isn’t it time for your business to reach its apex? Your greatest success is just around the corner.</h2>
+            <p class="max-w-2xl mx-auto mb-10 text-gray-500 leading-relaxed">This is a space to share more about the business: who’s behind it, what it does and what this site has to offer. It’s an opportunity to tell the story behind the business or describe a special service or product it offers. You can use this section to share the company history or highlight a particular feature that sets it apart from competitors.</p>
+            <a href="#" id="about-modal-trigger" class="inline-block px-10 py-4 bg-[#6771b7] text-white rounded-full font-medium tracking-wide hover:bg-[#7f88c9] transition-colors duration-300">Read More</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ABOUT MODAL -->
+      <div id="about-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+        <div class="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 sm:p-12 text-gray-800 animate-fade-in">
+          <button id="about-modal-close-btn" class="absolute top-4 right-4 text-gray-500 text-3xl leading-none z-10 hover:text-gray-800 transition-colors" aria-label="Close modal">&times;</button>
+          <div>
+              <h2 id="about-modal-title" class="text-4xl md:text-5xl font-bold mb-4">關於協會</h2>
+              <p class="text-base md:text-lg text-gray-600 leading-relaxed">非以營利為目的之公益性社會團體，為協助、促進與結合產官學研醫各界共同致力於發展提升人類健康與醫療之智慧光技術的創新應用而成立為宗旨。</p>
+          </div>
+          <hr class="my-10 border-gray-200" />
+          <div>
+              <h3 class="text-3xl md:text-4xl font-bold mb-10 text-center">協會成立</h3>
+              <div class="max-w-md mx-auto space-y-4">
+                  <div class="flex gap-4">
+                      <p class="w-36 text-right text-gray-500 font-medium flex-shrink-0">2021-04 ~ 2022-04</p>
+                      <div class="flex flex-col items-center -mt-1">
+                          <div class="w-4 h-4 bg-black rounded-full flex-shrink-0"></div>
+                          <div class="w-px h-16 bg-gray-400 mt-2"></div>
+                      </div>
+                      <p class="text-lg text-gray-800 -mt-1">光健康醫療科技創新發展協會籌備</p>
+                  </div>
+                  <div class="flex gap-4">
+                      <p class="w-36 text-right text-gray-500 font-medium flex-shrink-0">2022-05 ~ 2022-06</p>
+                      <div class="flex flex-col items-center">
+                          <div class="w-4 h-4 bg-black rounded-full flex-shrink-0"></div>
+                      </div>
+                      <p class="text-lg text-gray-800">光健康醫療科技創新發展協會核准設立</p>
+                  </div>
+              </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-6 mt-16">
+              <a href="#" class="px-8 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition-opacity">協會章程</a>
+              <a href="#" class="px-8 py-3 bg-gradient-to-r from-teal-500 to-lime-500 text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition-opacity">理監事名冊</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="py-20 md:py-32 bg-[#f8f8fa]">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-light tracking-wider mb-16 text-center text-gray-800">會員介紹</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="rounded-3xl p-8 flex flex-col bg-[#e8eaf6]">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-6 text-gray-800"><defs><path id="starburst-ray" d="M0 -30 V -10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></defs><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray" transform="rotate(0)"></use><use href="#starburst-ray" transform="rotate(22.5)"></use><use href="#starburst-ray" transform="rotate(45)"></use><use href="#starburst-ray" transform="rotate(67.5)"></use><use href="#starburst-ray" transform="rotate(90)"></use><use href="#starburst-ray" transform="rotate(112.5)"></use><use href="#starburst-ray" transform="rotate(135)"></use><use href="#starburst-ray" transform="rotate(157.5)"></use><use href="#starburst-ray" transform="rotate(180)"></use><use href="#starburst-ray" transform="rotate(202.5)"></use><use href="#starburst-ray" transform="rotate(225)"></use><use href="#starburst-ray" transform="rotate(247.5)"></use><use href="#starburst-ray" transform="rotate(270)"></use><use href="#starburst-ray" transform="rotate(292.5)"></use><use href="#starburst-ray" transform="rotate(315)"></use><use href="#starburst-ray" transform="rotate(337.5)"></use></g></svg>
+              <h3 class="text-3xl font-light mb-4 text-gray-800">Energy</h3>
+              <p class="text-base text-gray-600">Use this space to promote the business, its products or its services. Help people become familiar with the business and its offerings, creating a sense of connection and trust.</p>
+            </div>
+            <div class="rounded-3xl p-8 flex flex-col bg-[#6771b7]">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-6 text-white"><defs><path id="starburst-ray-white" d="M0 -30 V -10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></defs><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray-white" transform="rotate(0)"></use><use href="#starburst-ray-white" transform="rotate(22.5)"></use><use href="#starburst-ray-white" transform="rotate(45)"></use><use href="#starburst-ray-white" transform="rotate(67.5)"></use><use href="#starburst-ray-white" transform="rotate(90)"></use><use href="#starburst-ray-white" transform="rotate(112.5)"></use><use href="#starburst-ray-white" transform="rotate(135)"></use><use href="#starburst-ray-white" transform="rotate(157.5)"></use><use href="#starburst-ray-white" transform="rotate(180)"></use><use href="#starburst-ray-white" transform="rotate(202.5)"></use><use href="#starburst-ray-white" transform="rotate(225)"></use><use href="#starburst-ray-white" transform="rotate(247.5)"></use><use href="#starburst-ray-white" transform="rotate(270)"></use><use href="#starburst-ray-white" transform="rotate(292.5)"></use><use href="#starburst-ray-white" transform="rotate(315)"></use><use href="#starburst-ray-white" transform="rotate(337.5)"></use></g></svg>
+              <h3 class="text-3xl font-light mb-4 text-white">Technology</h3>
+              <p class="text-base text-gray-200">Use this space to promote the business, its products or its services. Help people become familiar with the business and its offerings, creating a sense of connection and trust.</p>
+            </div>
+            <div class="rounded-3xl p-8 flex flex-col bg-[#e8eaf6]">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-6 text-gray-800"><use href="#starburst-ray"></use><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray" transform="rotate(0)"></use><use href="#starburst-ray" transform="rotate(22.5)"></use><use href="#starburst-ray" transform="rotate(45)"></use><use href="#starburst-ray" transform="rotate(67.5)"></use><use href="#starburst-ray" transform="rotate(90)"></use><use href="#starburst-ray" transform="rotate(112.5)"></use><use href="#starburst-ray" transform="rotate(135)"></use><use href="#starburst-ray" transform="rotate(157.5)"></use><use href="#starburst-ray" transform="rotate(180)"></use><use href="#starburst-ray" transform="rotate(202.5)"></use><use href="#starburst-ray" transform="rotate(225)"></use><use href="#starburst-ray" transform="rotate(247.5)"></use><use href="#starburst-ray" transform="rotate(270)"></use><use href="#starburst-ray" transform="rotate(292.5)"></use><use href="#starburst-ray" transform="rotate(315)"></use><use href="#starburst-ray" transform="rotate(337.5)"></use></g></svg>
+              <h3 class="text-3xl font-light mb-4 text-gray-800">Infrastructure</h3>
+              <p class="text-base text-gray-600">Use this space to promote the business, its products or its services. Help people become familiar with the business and its offerings, creating a sense of connection and trust.</p>
+            </div>
+            <div class="rounded-3xl p-8 flex flex-col bg-[#e8eaf6]">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-6 text-gray-800"><use href="#starburst-ray"></use><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray" transform="rotate(0)"></use><use href="#starburst-ray" transform="rotate(22.5)"></use><use href="#starburst-ray" transform="rotate(45)"></use><use href="#starburst-ray" transform="rotate(67.5)"></use><use href="#starburst-ray" transform="rotate(90)"></use><use href="#starburst-ray" transform="rotate(112.5)"></use><use href="#starburst-ray" transform="rotate(135)"></use><use href="#starburst-ray" transform="rotate(157.5)"></use><use href="#starburst-ray" transform="rotate(180)"></use><use href="#starburst-ray" transform="rotate(202.5)"></use><use href="#starburst-ray" transform="rotate(225)"></use><use href="#starburst-ray" transform="rotate(247.5)"></use><use href="#starburst-ray" transform="rotate(270)"></use><use href="#starburst-ray" transform="rotate(292.5)"></use><use href="#starburst-ray" transform="rotate(315)"></use><use href="#starburst-ray" transform="rotate(337.5)"></use></g></svg>
+              <h3 class="text-3xl font-light mb-4 text-gray-800">Building & Architecture</h3>
+              <p class="text-base text-gray-600">Use this space to promote the business, its products or its services. Help people become familiar with the business and its offerings, creating a sense of connection and trust.</p>
+            </div>
+            <div class="rounded-3xl p-8 flex flex-col bg-[#6771b7]">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-6 text-white"><use href="#starburst-ray-white"></use><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray-white" transform="rotate(0)"></use><use href="#starburst-ray-white" transform="rotate(22.5)"></use><use href="#starburst-ray-white" transform="rotate(45)"></use><use href="#starburst-ray-white" transform="rotate(67.5)"></use><use href="#starburst-ray-white" transform="rotate(90)"></use><use href="#starburst-ray-white" transform="rotate(112.5)"></use><use href="#starburst-ray-white" transform="rotate(135)"></use><use href="#starburst-ray-white" transform="rotate(157.5)"></use><use href="#starburst-ray-white" transform="rotate(180)"></use><use href="#starburst-ray-white" transform="rotate(202.5)"></use><use href="#starburst-ray-white" transform="rotate(225)"></use><use href="#starburst-ray-white" transform="rotate(247.5)"></use><use href="#starburst-ray-white" transform="rotate(270)"></use><use href="#starburst-ray-white" transform="rotate(292.5)"></use><use href="#starburst-ray-white" transform="rotate(315)"></use><use href="#starburst-ray-white" transform="rotate(337.5)"></use></g></svg>
+              <h3 class="text-3xl font-light mb-4 text-white">Logistics</h3>
+              <p class="text-base text-gray-200">Use this space to promote the business, its products or its services. Help people become familiar with the business and its offerings, creating a sense of connection and trust.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLUTIONS -->
+      <section id="solutions" class="relative bg-[#19234b]" style="height: 400vh;">
+        <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+          <div class="relative w-full h-full">
+            <!-- CARD 1 -->
+            <div class="solution-card absolute inset-0 w-full h-full" style="z-index: 0;">
+                <div class="w-full px-4 sm:px-8 h-[85vh] max-h-[800px] mx-auto flex items-center justify-center">
+                    <div style="background-color: #e8eaf6" class="rounded-[40px] overflow-hidden h-full w-full">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 h-full">
+                            <div class="lg:col-span-1 flex items-center justify-center p-8" style="border-right: 1px solid #d1d5db;">
+                                <div class="text-center p-4" style="color: #1F2937;">
+                                    <h2 class="text-6xl sm:text-7xl font-light">協會創會理念</h2>
+                                    <p class="text-2xl sm:text-3xl mt-6 max-w-md leading-loose" style="opacity: 0.8;">協助學/醫/業界跨領域研發<br>打造全方位產業生態圈<br>引入更多的外部資源<br>爭取各界有志之士積極參與<br>積極發掘與培植相關專業人才</p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-2 relative h-full overflow-hidden">
+                                <img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="協會創會理念" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CARD 2 -->
+            <div class="solution-card absolute inset-0 w-full h-full" style="z-index: 1;">
+              <div class="w-full px-4 sm:px-8 h-[85vh] max-h-[800px] mx-auto flex items-center justify-center">
+                  <div style="background-color: #6771b7" class="rounded-[40px] overflow-hidden h-full w-full">
+                      <div class="grid grid-cols-1 lg:grid-cols-3 h-full">
+                          <div class="lg:col-span-1 flex items-center justify-center p-8" style="border-right: 1px solid #6771b7;">
+                              <div class="relative flex items-center justify-center w-56 h-56 md:w-64 md:h-64">
+                                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" style="color: rgba(255, 255, 255, 0.5); opacity: 0.5;"><defs><path id="starburst-ray-sol-2" d="M0 -30 V -10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></defs><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray-sol-2" transform="rotate(0)"></use><use href="#starburst-ray-sol-2" transform="rotate(22.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(45)"></use><use href="#starburst-ray-sol-2" transform="rotate(67.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(90)"></use><use href="#starburst-ray-sol-2" transform="rotate(112.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(135)"></use><use href="#starburst-ray-sol-2" transform="rotate(157.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(180)"></use><use href="#starburst-ray-sol-2" transform="rotate(202.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(225)"></use><use href="#starburst-ray-sol-2" transform="rotate(247.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(270)"></use><use href="#starburst-ray-sol-2" transform="rotate(292.5)"></use><use href="#starburst-ray-sol-2" transform="rotate(315)"></use><use href="#starburst-ray-sol-2" transform="rotate(337.5)"></use></g></svg>
+                                  <div class="absolute text-center" style="color: white;">
+                                      <h2 class="text-3xl font-light">Step 1</h2><h2 class="text-3xl font-light">Discovery</h2>
+                                      <p class="text-sm mt-4 max-w-xs" style="opacity: 0.8;">We begin by understanding your vision, goals, and challenges to lay a solid foundation for the project.</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="lg:col-span-2 relative h-full overflow-hidden">
+                              <img src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Step 1 Discovery" class="w-full h-full object-cover" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!-- CARD 3 -->
+            <div class="solution-card absolute inset-0 w-full h-full" style="z-index: 2;">
+              <div class="w-full px-4 sm:px-8 h-[85vh] max-h-[800px] mx-auto flex items-center justify-center">
+                  <div style="background-color: #f8f8fa" class="rounded-[40px] overflow-hidden h-full w-full">
+                      <div class="grid grid-cols-1 lg:grid-cols-3 h-full">
+                          <div class="lg:col-span-1 flex items-center justify-center p-8" style="border-right: 1px solid #e5e7eb;">
+                              <div class="relative flex items-center justify-center w-56 h-56 md:w-64 md:h-64">
+                                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" style="color: #1F2937; opacity: 0.5;"><defs><path id="starburst-ray-sol-3" d="M0 -30 V -10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></defs><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray-sol-3" transform="rotate(0)"></use><use href="#starburst-ray-sol-3" transform="rotate(22.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(45)"></use><use href="#starburst-ray-sol-3" transform="rotate(67.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(90)"></use><use href="#starburst-ray-sol-3" transform="rotate(112.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(135)"></use><use href="#starburst-ray-sol-3" transform="rotate(157.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(180)"></use><use href="#starburst-ray-sol-3" transform="rotate(202.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(225)"></use><use href="#starburst-ray-sol-3" transform="rotate(247.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(270)"></use><use href="#starburst-ray-sol-3" transform="rotate(292.5)"></use><use href="#starburst-ray-sol-3" transform="rotate(315)"></use><use href="#starburst-ray-sol-3" transform="rotate(337.5)"></use></g></svg>
+                                  <div class="absolute text-center" style="color: #1F2937;">
+                                      <h2 class="text-3xl font-light">Step 2</h2><h2 class="text-3xl font-light">Design</h2>
+                                      <p class="text-sm mt-4 max-w-xs" style="opacity: 0.8;">Our team crafts a detailed blueprint, focusing on innovative design and functional excellence to bring ideas to life.</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="lg:col-span-2 relative h-full overflow-hidden">
+                              <img src="https://images.pexels.com/photos/597933/pexels-photo-597933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Step 2 Design" class="w-full h-full object-cover" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!-- CARD 4 -->
+            <div class="solution-card absolute inset-0 w-full h-full" style="z-index: 3;">
+              <div class="w-full px-4 sm:px-8 h-[85vh] max-h-[800px] mx-auto flex items-center justify-center">
+                  <div style="background-color: #ffffff" class="rounded-[40px] overflow-hidden h-full w-full">
+                      <div class="grid grid-cols-1 lg:grid-cols-3 h-full">
+                          <div class="lg:col-span-1 flex items-center justify-center p-8" style="border-right: 1px solid #f3f4f6;">
+                              <div class="relative flex items-center justify-center w-56 h-56 md:w-64 md:h-64">
+                                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" style="color: #1F2937; opacity: 0.5;"><defs><path id="starburst-ray-sol-4" d="M0 -30 V -10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></defs><circle cx="50" cy="50" r="8" fill="currentColor"></circle><g transform="translate(50, 50)"><use href="#starburst-ray-sol-4" transform="rotate(0)"></use><use href="#starburst-ray-sol-4" transform="rotate(22.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(45)"></use><use href="#starburst-ray-sol-4" transform="rotate(67.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(90)"></use><use href="#starburst-ray-sol-4" transform="rotate(112.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(135)"></use><use href="#starburst-ray-sol-4" transform="rotate(157.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(180)"></use><use href="#starburst-ray-sol-4" transform="rotate(202.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(225)"></use><use href="#starburst-ray-sol-4" transform="rotate(247.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(270)"></use><use href="#starburst-ray-sol-4" transform="rotate(292.5)"></use><use href="#starburst-ray-sol-4" transform="rotate(315)"></use><use href="#starburst-ray-sol-4" transform="rotate(337.5)"></use></g></svg>
+                                  <div class="absolute text-center" style="color: #1F2937;">
+                                      <h2 class="text-3xl font-light">Step 3</h2><h2 class="text-3xl font-light">Delivery</h2>
+                                      <p class="text-sm mt-4 max-w-xs" style="opacity: 0.8;">We manage the execution with precision, ensuring the final result exceeds expectations and is delivered on time.</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="lg:col-span-2 relative h-full overflow-hidden">
+                              <img src="https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Step 3 Delivery" class="w-full h-full object-cover" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section id="clients" class="bg-white py-20 md:py-24">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-light text-gray-800 mb-12 text-center">協會創始贊助企業</h2>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div class="bg-[#f8f8fa] rounded-3xl p-8 h-36 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"><img src="https://static.wixstatic.com/media/0402ce_28e11986f36a47beaa5f2e530715976d~mv2.png/v1/crop/x_290,y_71,w_595,h_212/fill/w_434,h_156,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1236.png" alt="Client 1" class="max-h-24 w-auto object-contain"></div>
+            <div class="bg-[#f8f8fa] rounded-3xl p-8 h-36 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"><img src="https://static.wixstatic.com/media/0402ce_03346be943b84ec59036080ee543b9ba~mv2.png/v1/fill/w_762,h_224,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1232.png" alt="Client 2" class="max-h-24 w-auto object-contain"></div>
+            <div class="bg-[#f8f8fa] rounded-3xl p-8 h-36 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"><img src="https://static.wixstatic.com/media/0402ce_07d097ba726b45c5ad90a2a5dca908ac~mv2.png/v1/crop/x_0,y_67,w_1184,h_217/fill/w_632,h_116,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1235.png" alt="Client 3" class="max-h-24 w-auto object-contain"></div>
+            <div class="bg-[#f8f8fa] rounded-3xl p-8 h-36 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"><img src="https://static.wixstatic.com/media/0402ce_8d78d17562404737a57471d70641ad52~mv2.png/v1/fill/w_530,h_156,al_c,lg_1,q_85,enc_avif,quality_auto/%E6%88%AA%E5%9C%96%202022-09-07%2011_20_edited.png" alt="Client 4" class="max-h-24 w-auto object-contain"></div>
+            <div class="bg-[#f8f8fa] rounded-3xl p-8 h-36 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"><img src="https://static.wixstatic.com/media/0402ce_bf1146922a864249a4d7458ea61a9b0d~mv2.png/v1/crop/x_86,y_0,w_989,h_348/fill/w_634,h_224,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/123.png" alt="Client 5" class="max-h-24 w-auto object-contain"></div>
+            <div class="bg-[#f8f8fa] rounded-3xl p-8 h-36 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"><img src="https://static.wixstatic.com/media/0402ce_4cf57c2e67f34688b17c2b6f30defe92~mv2.png/v1/crop/x_237,y_0,w_680,h_348/fill/w_388,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1234.png" alt="Client 6" class="max-h-24 w-auto object-contain"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="py-20 md:py-32 bg-[#f8f8fa]">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-light tracking-widest uppercase mb-12 text-center text-gray-800">聯絡我們</h2>
+          <div class="grid md:grid-cols-2 gap-16">
+            <div class="text-gray-600">
+              <h3 class="text-xl text-gray-800 font-light tracking-wider mb-6">Get in Touch</h3>
+              <p class="mb-2">500 Terry Francois Street</p>
+              <p class="mb-6">San Francisco, CA 94158</p>
+              <p class="mb-2">Tel: 123-456-7890</p>
+              <p class="mb-2">Email: info@mysite.com</p>
+            </div>
+            <form id="contact-form">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <input type="text" name="name" placeholder="Name" required class="w-full bg-white border border-gray-300 rounded-md py-2 px-4 outline-none focus:border-[#6771b7] focus:ring-1 focus:ring-[#6771b7] transition">
+                <input type="email" name="email" placeholder="Email" required class="w-full bg-white border border-gray-300 rounded-md py-2 px-4 outline-none focus:border-[#6771b7] focus:ring-1 focus:ring-[#6771b7] transition">
+              </div>
+              <div class="mb-6">
+                <input type="text" name="subject" placeholder="Subject" required class="w-full bg-white border border-gray-300 rounded-md py-2 px-4 outline-none focus:border-[#6771b7] focus:ring-1 focus:ring-[#6771b7] transition">
+              </div>
+              <div class="mb-8">
+                <textarea name="message" placeholder="Message" rows="4" required class="w-full bg-white border border-gray-300 rounded-md py-2 px-4 outline-none focus:border-[#6771b7] focus:ring-1 focus:ring-[#6771b7] transition resize-none"></textarea>
+              </div>
+              <button type="submit" class="px-10 py-3 bg-[#6771b7] text-white text-sm uppercase tracking-widest hover:bg-[#7f88c9] transition-colors duration-300 rounded-md">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-[#e8eaf6]">
+      <div class="container mx-auto px-6 text-center text-gray-600">
+        <div class="flex justify-center space-x-6 mb-6">
+          <a href="#" aria-label="Facebook" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Twitter" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+          <a href="#" aria-label="Pinterest" class="hover:text-[#6771b7] transition-colors"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.3 2.8 8 6.7 9.3-.1-.9-.2-2.1.1-3 .3-1.2 1.8-7.8 1.8-7.8s-.5-1-1.1-1c-1 0-1.8 1-1.8 2.2 0 .9.5 2 1.2 2 .8 0 1.2-.9 1-2-.2-1.2-2-3.6 1.4-3.6 2.8 0 4.9 2.1 4.9 5.2 0 3.1-2 5.4-4.7 5.4-1.9 0-3.3-1.6-2.8-3.4.5-1.7 1.4-3.5 1.4-4.5 0-1.3-1-2.4-2.5-2.4-2 0-3.5 2.1-3.5 4.8 0 1.2.4 2.5.9 3.2.1.1.1.2.1.3s-.1.4-.2.5c-.1.3-.3.4-.6.3-1.3-.4-2.1-1.8-2.1-3.5 0-2.8 2.3-6.1 6.5-6.1 3.4 0 6.1 2.5 6.1 5.7 0 3.5-2.2 6.3-5.3 6.3-1.1 0-2.2-.6-2.5-1.2l-.8 2.8c-.3 1.2-1 2.9-1.5 3.8.7.2 1.4.3 2.2.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"></path></svg></a>
+        </div>
+        <p class="text-xs tracking-wider">
+          © 2024 by 光健康醫療科技創新發展協會. Proudly created with HTML & Tailwind CSS.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- MODAL LOGIC ---
+        function setupModal(modalId, triggerId, closeBtnId) {
+          const modal = document.getElementById(modalId);
+          const trigger = document.getElementById(triggerId);
+          const closeBtn = document.getElementById(closeBtnId);
+          const body = document.body;
+
+          if (!modal || !trigger || !closeBtn) return;
+
+          const openModal = () => {
+            modal.classList.remove('hidden');
+            body.classList.add('modal-open');
+          };
+          
+          const closeModal = () => {
+            modal.classList.add('hidden');
+            body.classList.remove('modal-open');
+          };
+          
+          trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+          });
+          
+          closeBtn.addEventListener('click', closeModal);
+
+          // Close modal by clicking on the backdrop
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+              closeModal();
+            }
+          });
+          
+          // Close modal with Escape key
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+              closeModal();
+            }
+          });
+        }
+        
+        setupModal('hero-modal', 'hero-modal-trigger', 'hero-modal-close-btn');
+        setupModal('about-modal', 'about-modal-trigger', 'about-modal-close-btn');
+
+        // --- SOLUTIONS SCROLL ANIMATION ---
+        const solutionsSection = document.getElementById('solutions');
+        const solutionCards = document.querySelectorAll('.solution-card');
+        
+        if (solutionsSection && solutionCards.length > 0) {
+          const handleScroll = () => {
+            const { top } = solutionsSection.getBoundingClientRect();
+            let scrollPosition = 0;
+            if (top <= 0) {
+              scrollPosition = Math.abs(top);
+            }
+
+            const vh = window.innerHeight;
+
+            solutionCards.forEach((card, index) => {
+              if (index === 0) {
+                card.style.transform = 'translateY(0%)';
+                return;
+              }
+
+              const animationStart = (index - 1) * vh;
+              const animationEnd = index * vh;
+              let transform = 'translateY(100%)';
+
+              if (scrollPosition > animationStart) {
+                if (scrollPosition >= animationEnd) {
+                  transform = 'translateY(0%)';
+                } else {
+                  const progress = (scrollPosition - animationStart) / (animationEnd - animationStart);
+                  transform = `translateY(${100 - (progress * 100)}%)`;
+                }
+              }
+              card.style.transform = transform;
+            });
+          };
+          
+          // Initial call to set positions correctly on load
+          handleScroll();
+          window.addEventListener('scroll', handleScroll, { passive: true });
+        }
+        
+        // --- CONTACT FORM LOGIC ---
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+          contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message!');
+            contactForm.reset();
+          });
+        }
+      });
+    </script>
+
+</body>
+</html>
